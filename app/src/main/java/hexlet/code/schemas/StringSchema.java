@@ -13,18 +13,21 @@ public class StringSchema {
     public StringSchema() {
     }
 
-    public void contains(String substring) {
+    public StringSchema contains(String substring) {
         isContains = true;
         this.substring = substring;
+        return this;
     }
 
-    public void required() {
+    public StringSchema required() {
         isReq = true;
+        return this;
     }
 
-    public void minLength(int reqLength) {
+    public StringSchema minLength(int reqLength) {
         isMinLength = true;
         this.reqLength = reqLength;
+        return this;
     }
 
     public boolean isValid(Object item) {

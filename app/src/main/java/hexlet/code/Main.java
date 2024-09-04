@@ -6,9 +6,8 @@ public class Main {
 
         var val = new Validator();
         var sc = val.string();
-        System.out.println(sc.isValid(""));
-        sc.contains("b");
-        System.out.println(sc.isValid("laa"));
+        System.out.println(sc.required().isValid("df"));
+        System.out.println(sc.contains("c").isValid("lcaa"));
 
     }
 }
