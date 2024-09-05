@@ -18,9 +18,9 @@ class MainTest {
     @Test
     void testStringValidation() {
         var stringSchema = valid.string();
-        assertThat(stringSchema.isValid()).isTrue();
+        assertThat(stringSchema.isValid(null)).isTrue();
         stringSchema.required();
-        assertThat(stringSchema.isValid()).isFalse();
+        assertThat(stringSchema.isValid(null)).isFalse();
         stringSchema = valid.string();
         stringSchema.contains("a");
         assertThat(stringSchema.isValid("a")).isTrue();

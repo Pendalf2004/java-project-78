@@ -6,8 +6,9 @@ public class Main {
 
         var val = new Validator();
         var sc = val.string();
-        System.out.println(sc.required().isValid("df"));
-        System.out.println(sc.contains("c").isValid("lcaa"));
+        sc.minLength(56);
+        sc.minLength(3);
 
+        System.out.println(sc.isValid("ffff"));
     }
 }
