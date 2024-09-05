@@ -11,10 +11,6 @@ class MainTest {
         valid = new Validator();
     }
 
-    @org.junit.jupiter.api.AfterEach
-    void tearDown() {
-    }
-
     @Test
     void testStringValidation() {
         var stringSchema = valid.string();
