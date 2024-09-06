@@ -51,4 +51,4 @@ jobs:
         JACOCO_SOURCE_PATH: ${{github.workspace}}/app/src/main/java
       with:
         coverageLocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
-        coverageCommand: https://github.com/Pendalf2004/java-project-78/blob/5fa1934c473129781a0d8e27e0bee3d3e90004bc/app/gradlew jacocoTestReport
+        coverageCommand: app/gradlew jacocoTestReport
