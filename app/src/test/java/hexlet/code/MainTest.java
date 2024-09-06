@@ -24,5 +24,6 @@ class MainTest {
         stringSchema.minLength(2);
         assertThat(stringSchema.isValid("a")).isFalse();
         assertThat(stringSchema.isValid("aa")).isTrue();
+
     }
 }
