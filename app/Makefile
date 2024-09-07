@@ -1,2 +1,4 @@
-report: 	
-      ./gradlew jacocoTestReport
+report:
+	./gradlew jacocoTestReport
+test:
+	./gradlew test
