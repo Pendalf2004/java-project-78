@@ -13,7 +13,7 @@ public class NumberSchema extends BaseSchema<Integer> {
         return this;
     }
 
-    public NumberSchema range(int min, int max) {
+    public NumberSchema range(Integer min, Integer max) {
         addCheck("isInRangeCheck", item -> (min <= item) && (max >= item));
         return this;
     }

@@ -17,6 +17,9 @@ public class BaseSchema<Type> {
         if (notNullCheck && Objects.isNull(item)) {
             return false;
         }
+        if (Objects.isNull(item) && (this instanceof NumberSchema) && !checks.isEmpty()) {
+            return false;
+        }
         if ((this.getClass() == MapSchema.class) && ((MapSchema) this).isShaped && (item instanceof Map)) {
             for (var key : ((MapSchema) this).storedValidationMap.keySet()) {
                 var schema = ((MapSchema) this).get(key);

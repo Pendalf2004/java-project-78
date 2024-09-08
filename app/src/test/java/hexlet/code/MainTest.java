@@ -42,7 +42,7 @@ class MainTest {
         assertThat(numSchema.isValid(0)).isFalse();
         numSchema.range(2, 3);
         assertThat(numSchema.isValid(1)).isFalse();
-        assertThat(numSchema.isValid(2)).isTrue();
+        assertThat(numSchema.isValid(null)).isFalse();
     }
     @Test
     void testMapValidation() {
