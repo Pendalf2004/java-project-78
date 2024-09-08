@@ -40,11 +40,11 @@ class MainTest {
         numSchema.positive();
         assertThat(numSchema.isValid(1)).isTrue();
         assertThat(numSchema.isValid(0)).isFalse();
-        numSchema.range(2,3);
+        numSchema.range(2, 3);
         assertThat(numSchema.isValid(1)).isFalse();
         assertThat(numSchema.isValid(2)).isTrue();
-   }
-   @Test
+    }
+    @Test
     void testMapValidation() {
         var mapSchema = valid.map();
         Map<String, BaseSchema<String>>  mapValidation = new HashMap<>();
@@ -66,7 +66,6 @@ class MainTest {
         human3.put("firstName", "Anna");
         human3.put("lastName", "B");
         assertThat(mapSchema.isValid(human3)).isFalse();
-
-   }
+    }
 
 }
