@@ -17,22 +17,27 @@ public class BaseSchema<Type> {
         if (notNullCheck && Objects.isNull(item)) {
             return false;
         }
-        if (Objects.isNull(item) && (this instanceof NumberSchema) && !checks.isEmpty()) {
+        if (Objects.isNull(item) && !checks.isEmpty()) {
             return false;
         }
-        if ((this.getClass() == MapSchema.class) && ((MapSchema) this).isShaped && (item instanceof Map)) {
+        if (item instanceof Map && mapNotValidated(item)) {
+            return false;
+        }
+        return checks.values().stream().
+                allMatch(check -> check.test(item));
+    }
+
+    private boolean mapNotValidated(Type item) {
+        if (((MapSchema) this).isShaped && item instanceof Map) {
             for (var key : ((MapSchema) this).storedValidationMap.keySet()) {
                 var schema = ((MapSchema) this).get(key);
                 var valueToCheck = ((Map<?, ?>) item).get(key);
                 if (!schema.isValid(valueToCheck)) {
-                    return false;
+                    return true;
                 }
             }
-            return true;
         }
-
-        return checks.values().stream()
-                .allMatch(check -> check.test(item));
+        return false;
     }
 
 }
