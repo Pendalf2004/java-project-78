@@ -1,10 +1,9 @@
 package hexlet.code.schemas;
 
-
 public class NumberSchema extends BaseSchema<Integer> {
 
     public NumberSchema required() {
-        notNullCheck = true;
+        isRequered = true;
         return this;
     }
 

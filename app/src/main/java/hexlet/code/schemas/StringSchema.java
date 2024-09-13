@@ -8,8 +8,7 @@ public class StringSchema extends BaseSchema<String> {
     }
 
     public StringSchema required() {
-        notNullCheck = true;
-        addCheck("isRequerdCheck", item -> !item.isEmpty());
+        isRequered = true;
         return this;
     }
 

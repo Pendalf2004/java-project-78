@@ -42,7 +42,7 @@ class MainTest {
         assertThat(numSchema.isValid(0)).isFalse();
         numSchema.range(2, 3);
         assertThat(numSchema.isValid(1)).isFalse();
-        assertThat(numSchema.isValid(null)).isFalse();
+        assertThat(numSchema.isValid(null)).isTrue();
     }
     @Test
     void testMapValidation() {
@@ -68,4 +68,15 @@ class MainTest {
         assertThat(mapSchema.isValid(human3)).isFalse();
     }
 
+    @Test
+    void additionalNumTest() {
+        var v = new Validator();
+        var schema = v.number();
+
+        assertThat(schema.isValid(5)).isTrue();
+        assertThat(schema.isValid(null)).isTrue();
+
+        schema.positive();
+        assertThat(schema.isValid(null)).isTrue();
+    }
 }
