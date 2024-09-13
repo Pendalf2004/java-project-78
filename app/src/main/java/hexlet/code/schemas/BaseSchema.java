@@ -7,17 +7,17 @@ import java.util.function.Predicate;
 
 public class BaseSchema<Type> {
     protected Map<String, Predicate<Type>> checks = new HashMap<>();
-    protected boolean isRequered = false;
+    protected boolean isRequired = false;
 
     public void addCheck(String nameOfCheck, Predicate<Type> check) {
         checks.put(nameOfCheck, check);
     }
 
     public boolean isValid(Type item) {
-        if (isRequered && Objects.isNull(item)) {
+        if (isRequired && Objects.isNull(item)) {
             return false;
         }
-        if (!isRequered && Objects.isNull(item)) {
+        if (!isRequired && Objects.isNull(item)) {
             return true;
         }
         if (item instanceof Map && mapNotValidated(item)) {

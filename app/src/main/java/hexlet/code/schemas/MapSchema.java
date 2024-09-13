@@ -8,7 +8,7 @@ public class MapSchema extends BaseSchema<Map<?, ?>> {
     protected Map<String, BaseSchema<Type>> storedValidationMap;
 
     public MapSchema required() {
-        isRequered = true;
+        isRequired = true;
         return this;
     }
     public MapSchema sizeof(int reqSize) {
