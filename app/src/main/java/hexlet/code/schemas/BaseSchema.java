@@ -27,7 +27,7 @@ public class BaseSchema<Type> {
                 allMatch(check -> check.test(item));
     }
 
-    private final boolean mapNotValidated(Type item) {
+    private boolean mapNotValidated(Type item) {
         if (((MapSchema) this).isShaped && item instanceof Map) {
             for (var key : ((MapSchema) this).storedValidationMap.keySet()) {
                 var schema = ((MapSchema) this).get(key);
