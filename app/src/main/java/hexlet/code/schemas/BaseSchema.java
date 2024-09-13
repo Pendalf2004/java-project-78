@@ -9,11 +9,11 @@ public class BaseSchema<Type> {
     protected Map<String, Predicate<Type>> checks = new HashMap<>();
     protected boolean isRequired = false;
 
-    public void addCheck(String nameOfCheck, Predicate<Type> check) {
+    public final void addCheck(String nameOfCheck, Predicate<Type> check) {
         checks.put(nameOfCheck, check);
     }
 
-    public boolean isValid(Type item) {
+    public final boolean isValid(Type item) {
         if (isRequired && Objects.isNull(item)) {
             return false;
         }
@@ -27,7 +27,7 @@ public class BaseSchema<Type> {
                 allMatch(check -> check.test(item));
     }
 
-    private boolean mapNotValidated(Type item) {
+    private final boolean mapNotValidated(Type item) {
         if (((MapSchema) this).isShaped && item instanceof Map) {
             for (var key : ((MapSchema) this).storedValidationMap.keySet()) {
                 var schema = ((MapSchema) this).get(key);
@@ -39,5 +39,4 @@ public class BaseSchema<Type> {
         }
         return false;
     }
-
 }

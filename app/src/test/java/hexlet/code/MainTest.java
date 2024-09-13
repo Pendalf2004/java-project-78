@@ -9,7 +9,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MainTest {
-    Validator valid;
+    private Validator valid;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
