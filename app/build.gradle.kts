@@ -4,7 +4,6 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 plugins {
     id("java")
     id ("checkstyle")
-    application
     jacoco
     id ("com.adarshr.test-logger") version "3.0.0"
 }
